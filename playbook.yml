@@ -1,0 +1,15 @@
+---
+- name: Playbook de Instalação do Nginx
+  gather_facts: false
+  hosts: tag_Name_ServidorWeb
+  become: true
+  tasks:
+    - name: Instalar o Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    - name: Iniciar o serviço do Nginx
+      service:
+        name: nginx
+        state: started  
